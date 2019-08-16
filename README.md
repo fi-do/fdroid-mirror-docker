@@ -46,5 +46,4 @@ Dominik
 * Improve fixes
 
 ## Fix
-* Start Cron after container docker exec -t containername service cron start
 * Limit Bandwith docker exec -t containername  tc qdisc add dev eth0 root tbf rate 5mbit burst 32kbit latency 400ms && \
