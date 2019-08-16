@@ -13,8 +13,6 @@ ADD cron /etc/cron.d/fdroid
 # Copy nginx
 ADD nginx /etc/nginx/sites-available/fdroid
 
-# Workingdir
-
 # Setting up environment
 RUN mkdir -p /var/www/fdroid/fdroid/repo && \
     envsubst < /etc/cron.d/fdroid > /etc/cron.d/fdroid.cron && \
@@ -29,11 +27,8 @@ RUN mkdir -p /var/www/fdroid/fdroid/repo && \
     ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     ln -s /etc/nginx/sites-available/fdroid.conf /etc/nginx/conf.d/ && \
-    update-rc.d cron defaults
+    service cron start
 
 
 # Nginx foreground mode
 CMD nginx -g 'daemon off;'
-
-
-#  tc qdisc add dev eth0 root tbf rate 5mbit burst 32kbit latency 400ms && \
