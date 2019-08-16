@@ -1,0 +1,1 @@
+*/5 * * * * www-data env RSYNC_PASSWORD=$RSYNC_PASSWORD /usr/bin/rsync --links --delete --times --recursive --perms --hard-links --sparse --progress --delay-updates --temp-dir /tmp/ fdroid-mirror@mirror.f-droid.org::repo/ /var/www/fdroid/fdroid/repo/ 
