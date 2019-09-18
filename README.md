@@ -27,6 +27,7 @@ For more information visit https://f-droid.org/en/docs/Running_a_Mirror/
 ### Requirements
 
 * docker
+* JrCs docker environment for a reverse proxy and certificates
 * rsync password from fdroid
 
 ### Installation
