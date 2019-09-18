@@ -13,8 +13,9 @@ Small dockerfile to support the fdroid network with an additional repo mirror.
 
 ## About the Project
 
-I want to contribute to a project i personally use. So i started to wirte a
-dockerfile to easily support the fdroid network with another mirror.
+I want to contribute to a project I personally use. So I started to wirte a
+dockerfile to easily support the fdroid network with another mirror. Right now
+only the main repo will be mirrored.
 
 ## Getting Started
 
@@ -31,7 +32,7 @@ For more information visit https://f-droid.org/en/docs/Running_a_Mirror/
 ### Installation
 
 ```
-docker build -t fdroid-mirror --build-arg domain=fdroid.fi-do.io --build-arg \
+docker build -t fdroid-mirror --build-arg domain=your.domain.tld --build-arg \
 RSYNC_PASSWORD=thepassword --no-cache .
 
 docker volume create fdroid-repo
@@ -44,9 +45,6 @@ docker run --name fdroid-mirror-repo -d --cap-add NET_ADMIN \
 -v fdroid-repo:/var/www/fdroid/fdroid/repo/ fdroid-mirror:latest
 ```
 
-## Example
-
-
 ## Contact
 
 Dominik
@@ -55,6 +53,8 @@ Dominik
 * Complete the readme
 * Checkout some docker best practices to make a proper docker file
 * Improve fixes
+* Add archive
+* Create an docker hub account
 
 ## Fix
-* Limit Bandwidth docker exec -t containername  tc qdisc add dev eth0 root tbf rate 5mbit burst 32kbit latency 400ms
+* Limit Bandwidth: docker exec -t containername  tc qdisc add dev eth0 root tbf rate 5mbit burst 32kbit latency 400ms
